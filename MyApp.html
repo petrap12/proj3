@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>verkefni 3 - WEPO</title>
+	<script type="text/javascript" src="loginController.js"></script>
+	<script type="text/javascript" src="EvalApp.js"></script>
+	<script type="text/javascript" src="config.js"></script>	
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.min.js"></script>
+</head>
+<body>
+	<h1>Evaluation App</h1>
+	<div class="container">
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<!--<div class="panel-heading">Login</div>-->
+			<div class="panel-body">
+
+				<!--<div class="alert alert-danger" ng-cloak ng-show="errorMessage != ''">
+					{{errorMessage}}
+				</div>-->
+
+				<div class="form-group">
+					<label for="username" class="control-label">Name</label>
+					<input type="text" class="form-control" id="username" name="username" ng-model="username" />
+				</div>
+
+				<div class="form-group">
+					<label for="password" class="control-label">Password</label>
+					<input type="text" class="form-control" id="password" name="password" ng-model="password" />
+				</div>
+
+				<button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
