@@ -4,7 +4,7 @@ angular.module("MyApp", []);
 
 angular.module("MyApp").controller("CreateLoginController",
 function($scope, LoginResourse, toastr) {
-	var thisUser = {
+	$scope.thisUser = {
 		$scope.user = '';
 		$scope.pass = '';
 	};
