@@ -4,13 +4,13 @@ angular.module("MyApp", []);
 
 angular.module("MyApp").controller("CreateLoginController",
 function($scope, LoginResourse, toastr) {
-	$scope.thisUser = {
+	var thisUser = {
 		$scope.user = '';
 		$scope.pass = '';
 	};
 
 	$scope.onSave = function() {
-		LoginResource.createLogin($scope.thisUser);
+		LoginResource.createLogin(thisUser);
 	};
 });
 
@@ -19,6 +19,7 @@ function($http) {
 	return {
 		createLogin: function(template){
 			//return $http.post()
+
 		}
 	};
 });
