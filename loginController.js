@@ -5,8 +5,8 @@ angular.module("MyApp", []);
 angular.module("MyApp").controller("CreateLoginController",
 function($scope, LoginResourse, toastr) {
 	$scope.thisUser = {
-		$scope.user = '';
-		$scope.pass = '';
+		$scope.username = '';
+		$scope.password = '';
 	};
 
 	$scope.onSave = function() {
