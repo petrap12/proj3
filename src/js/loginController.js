@@ -1,8 +1,7 @@
 "use strict";
+angular.module("EvalApp", ["ngRoute"]);
 
-angular.module("MyApp", []);
-
-angular.module("MyApp").controller("CreateLoginController",
+angular.module("EvalApp").controller("loginController",
 function($scope, LoginResourse, toastr) {
 	$scope.thisUser = {
 		username: '',
@@ -14,11 +13,11 @@ function($scope, LoginResourse, toastr) {
 	};
 });
 
-angular.module("MyApp").factory("LoginResource",
+angular.module("EvalApp").factory("LoginResource",
 function($http) {
 	return {
 		createLogin: function(template){
-			$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: $scope.username, pass: $scope.password})
+			$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: $scope.thisUser.username, pass: $scope.thisUser.password})
 			.success (function(data) {
 			$scope.thisUser = data;
 			$scope.token = $scope.thisUser.Token;
@@ -30,31 +29,13 @@ function($http) {
 	};
 });
 
-/*angular.module('EvalClient').controller('LoginController', [
-'$scope', '$location', '$rootScope', '$routeParams', 'socket',    
-function ($scope, $location, $rootScope, $routeParams, socket) {
-	
-	$scope.errorMessage = '';
-	$scope.nickname = '';
 
-	$scope.login = [function() {			
-		if ($scope.nickname === '') {
-			$scope.errorMessage = 'Please choose a nick-name before continuing!';
-		} else {
-			socket.emit('adduser', $scope.nickname, ['available', function (available) {
-				if (available) {
-					$location.path('/rooms/' + $scope.nickname);
-				} else {
-					$scope.errorMessage = 'This nick-name is already taken!';
-				}
-			}]);			
-		}
-	}];
-}]);*/
 
-/*angular.module('MyApp', []);
+/*
+//This code is test, and might be better
+angular.module('MyApp', []);
 
-MyApp.$controller('loginController', ['$scope', '$http', function($scope, $http) {
+angular.module("MyApp").controller('loginController', ['$scope', '$http', function($scope, $http) {
 	$scope.username = '';
 	$scope.password = '';
 	$scope.token = '';
@@ -64,7 +45,6 @@ MyApp.$controller('loginController', ['$scope', '$http', function($scope, $http)
 		.success (function(data) {
 			$scope.thisUser = data;
 			$scope.token = $scope.thisUser.Token;
-			console.log("here");
 			return true;
 		});
 	};

@@ -1,8 +1,7 @@
 "use strict";
+angular.module("EvalApp", ["ngRoute"]);
 
-angular.module("MyApp", []);
-
-angular.module("MyApp").controller("CreateTemplateController",
+angular.module("EvalApp").controller("templateController",
 function($scope, TemplateResourse, toastr) {
 	$scope.template = {
 		CourseQuestions: [],
@@ -22,7 +21,7 @@ function($scope, TemplateResourse, toastr) {
 
 });
 
-angular.module("MyApp").factory("TemplateResource",
+angular.module("EvalApp").factory("TemplateResource",
 function($http) {
 	return {
 		createTemplate: function(template){
