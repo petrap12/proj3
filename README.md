@@ -21,11 +21,13 @@ TODO
 TOOD
 
 ## Grunt
-`grunt` (default) executes the following
+`grunt` (default) executes the following 
 - jshint
-`grunt karma` executes the following
+
+`grunt karma` executes the following 
 - karma
-`grunt setup` executes the following
+
+`grunt setup` executes the following 
 - jshint
 - concat
 - uglify
