@@ -1,6 +1,13 @@
 # Evaluation app
 A course evaluation app
 
+#### TODOs
+- config file
+- 4+ controllers each in own file
+- 1 template directive
+- Fix html header (references to script now local)
+- Create a test version of scripts, each test file ending with Spec in its name **IMPORTANT**
+
 ## Requirements
 - NPM command client
 - GIT (for bower)
