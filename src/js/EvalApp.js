@@ -26,7 +26,7 @@ function($http, SERVER_URL) {
 			return $http.get(SERVER_URL + "evaluationtemplates/:id", {id:ID});
 		},
 		addTemplate: function(template) {
-			$http.post(SERVER_URL + "evaluationtemplates", undefined, template)
+			$http.post(SERVER_URL + "evaluationtemplates", undefined, template);
 		}
 	};
 });
@@ -35,7 +35,7 @@ angular.module("EvalApp").factory("LoginResource",
 function($http, SERVER_URL) {
 	return {
 		getLogin: function() {
-			$http.post(SERVER_URL + "login", data)
+			$http.post(SERVER_URL + "login", data);
 		}
 	};
 });
