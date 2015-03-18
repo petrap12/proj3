@@ -1,29 +1,30 @@
 "use strict";
 angular.module("EvalApp", ["ngRoute"]);
 
-angular.module("EvalApp").controller("loginController",
-function($scope, LoginResourse, toastr) {
-	$scope.thisUser = {
-		username: '',
-		password: ''
-	};
+angular.module("EvalApp").controller('loginController', ['$scope', 'LoginResourse',
+function($scope, LoginResourse) {
+	$scope.username = '';
+	$scope.password = '';
 
-	$scope.onSave = function() {
-		LoginResource.createLogin(thisUser);
+	console.log("virkar");
+	$scope.login = function() {
+		console.log("login");
+		LoginResource.createLogin($scope.username, $scope.password);
 	};
-});
+}]);
 
 angular.module("EvalApp").factory("LoginResource",
-function($http) {
+function($http, $location) {
 	return {
-		createLogin: function(template){
-			$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: $scope.thisUser.username, pass: $scope.thisUser.password})
+		createLogin: function(username, password){
+			$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: username, pass: password})
 			.success (function(data) {
-			$scope.thisUser = data;
-			$scope.token = $scope.thisUser.Token;
-			console.log("here");
-			return true;
-		});
+				$location.path('/home/' + $scope.username);
+				$scope.thisUser = data;
+				$scope.token = $scope.thisUser.Token;
+				console.log("here");
+				return true;
+			});
 
 		}
 	};
@@ -31,11 +32,11 @@ function($http) {
 
 
 
-/*
-//This code is test, and might be better
-angular.module('MyApp', []);
 
-angular.module("MyApp").controller('loginController', ['$scope', '$http', function($scope, $http) {
+//This code is test, and might be better
+/*angular.module('EvalApp', ["ngRoute"]);
+
+angular.module("EvalApp").controller('loginController', ['$scope', '$http', function($scope, $http) {
 	$scope.username = '';
 	$scope.password = '';
 	$scope.token = '';
