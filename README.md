@@ -5,7 +5,7 @@ A course evaluation app
 - NPM command client
 - GIT (for bower)
 
-## Quick start
+## Setup
 - `npm -d install`
 - `npm install -g bower` (only needed once, if you have done so before, not neccessary)
 - `npm install -g grunt-cli` (only needed once, if you have done so before, not neccessary)
