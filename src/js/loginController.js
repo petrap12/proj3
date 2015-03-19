@@ -1,7 +1,7 @@
-"use strict";
-angular.module("EvalApp", ["ngRoute"]);
+'use strict';
+var EvalApp = angular.module('EvalApp', ['ngRoute']);
 
-angular.module("EvalApp").controller('loginController', ['$scope', 'LoginResourse',
+EvalApp.controller('loginController', ['$scope', 'LoginResourse',
 function($scope, LoginResourse) {
 	$scope.username = '';
 	$scope.password = '';
@@ -12,11 +12,11 @@ function($scope, LoginResourse) {
 	};
 }]);
 
-angular.module("EvalApp").factory("LoginResource",
+EvalApp.factory('LoginResource',
 function($http, $location) {
 	return {
 		createLogin: function(username, password){
-			$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: username, pass: password})
+			$http.post('http://dispatch.hir.is/h14/api/v1/login', {user: username, pass: password})
 			.success (function(data) {
 				$location.path('/home/' + $scope.username);
 				$scope.thisUser = data;

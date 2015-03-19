@@ -1,8 +1,8 @@
 "use strict";
-angular.module("EvalApp", ["ngRoute"]);
-angular.module("EvalApp"). constant("SERVER_URL", "http://dispatch.hir.is/h14/api/v1/");
+var EvalApp = angular.module('EvalApp', ['ngRoute']);
+angular.module('EvalApp'). constant('SERVER_URL', 'http://dispatch.hir.is/h14/api/v1/');
 
-angular.module("EvalApp").controller("templateController",
+EvalApp.controller("templateController",
 function($scope, TemplateResourse, toastr) {
 	$scope.template = {
 		CourseQuestions: [],
@@ -22,7 +22,7 @@ function($scope, TemplateResourse, toastr) {
 
 });
 
-angular.module("EvalApp").factory("TemplateResource",
+EvalApp.factory("TemplateResource",
 function($http) {
 	return {
 		getTemplates: function () {
