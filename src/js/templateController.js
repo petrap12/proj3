@@ -1,5 +1,6 @@
 "use strict";
 angular.module("EvalApp", ["ngRoute"]);
+angular.module("EvalApp"). constant("SERVER_URL", "http://dispatch.hir.is/h14/api/v1/");
 
 angular.module("EvalApp").controller("templateController",
 function($scope, TemplateResourse, toastr) {
@@ -15,7 +16,7 @@ function($scope, TemplateResourse, toastr) {
 			toastr.error("There must be at least one question defined");
 			
 		} else {
-			TemplateResource.createTemplate($scope.template);
+			TemplateResource.addTemplate($scope.template);
 		}
 	};
 
@@ -24,8 +25,14 @@ function($scope, TemplateResourse, toastr) {
 angular.module("EvalApp").factory("TemplateResource",
 function($http) {
 	return {
-		createTemplate: function(template){
-			//return $http.post()
+		getTemplates: function () {
+			return $http.get(SERVER_URL + "evaluationtemplates");
+		},
+		getTemplateByID: function(id){
+			return $http.get(SERVER_URL + "evaluationtemplates/" + id, {id:ID});
+		},
+		addTemplate: function(template) {
+			$http.post(SERVER_URL + "evaluationtemplates", undefined, template)
 		}
 	};
 });

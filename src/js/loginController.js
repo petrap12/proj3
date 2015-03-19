@@ -6,7 +6,6 @@ function($scope, LoginResourse) {
 	$scope.username = '';
 	$scope.password = '';
 
-	console.log("virkar");
 	$scope.login = function() {
 		console.log("login");
 		LoginResource.createLogin($scope.username, $scope.password);
@@ -22,10 +21,8 @@ function($http, $location) {
 				$location.path('/home/' + $scope.username);
 				$scope.thisUser = data;
 				$scope.token = $scope.thisUser.Token;
-				console.log("here");
 				return true;
 			});
-
 		}
 	};
 });
