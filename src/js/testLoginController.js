@@ -1,6 +1,6 @@
-angular.module('MyApp', []);
+angular.module('EvalApp', []);
 
-MyApp.$controller('loginController', ['$scope', '$http', function($scope, $http) {
+EvalApp.$controller('loginController', ['$scope', '$http', function($scope, $http) {
 	$scope.username = '';
 	$scope.password = '';
 	$scope.token = '';
@@ -16,7 +16,7 @@ MyApp.$controller('loginController', ['$scope', '$http', function($scope, $http)
 	};
 }]);
 
-/*angular.module("MyApp").factory("LoginResource",
+/*angular.module("EvalApp").factory("LoginResource",
 function($http) {
 	return {
 		createLogin: function(template){
