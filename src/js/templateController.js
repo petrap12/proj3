@@ -32,7 +32,7 @@ function($http) {
 			return $http.get(SERVER_URL + "evaluationtemplates/" + id, {id:ID});
 		},
 		addTemplate: function(template) {
-			$http.post(SERVER_URL + "evaluationtemplates", undefined, template)
+			$http.post(SERVER_URL + "evaluationtemplates", undefined, template);
 		}
 	};
 });

@@ -11,5 +11,5 @@ function(){
 			//if(attributes.smu)
 			//if(scope.question.Type === "text")
 		}
-	}
+	};
 });
