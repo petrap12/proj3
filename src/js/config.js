@@ -1,10 +1,12 @@
-angular.module('EvalClient', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/login', { templateUrl: 'src/View/login.html', controller: 'loginController' })
-			/*.when('/rooms/:user/', { templateUrl: 'Views/rooms.html', controller: 'RoomsController' })
-			.when('/room/:user/:room/', { templateUrl: 'Views/room.html', controller: 'RoomController' })*/
-			.otherwise({
-	  			redirectTo: '/login'
-			});
+var EvalApp = angular.module('EvalApp', ['ngRoute']);
+
+EvalApp.config(['$routeProvider', function ($routeProvider) {
+	$routeProvider
+		.when('/login', { templateUrl: 'src/View/login.html', controller: 'src/js/loginController.js' })
+		.when('/admin', { templateUrl: 'src/View/createTemplate.html', controller: 'src/js/templateController.js' })
+		.otherwise({
+			redirectTo: '/login'
+		});
 	}
 ]);
+
