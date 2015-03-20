@@ -1,11 +1,7 @@
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
 
-angular.module('ChatClient').controller('LoginController', [
-'$scope', '$location', '$rootScope', '$routeParams', 'socket',    
-function ($scope, $location, $rootScope, $routeParams, socket) {
-
-EvalApp.controller('loginController', ['$scope', 'LoginResourse', '$location'
-function($scope, LoginResource, $location) {
+EvalApp.controller('LoginController', ['$scope', 'LoginResourse',
+function($scope, LoginResource) {
 	$scope.username = '';
 	$scope.password = '';
 

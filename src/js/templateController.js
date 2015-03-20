@@ -1,7 +1,7 @@
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
 var SERVER_URL = 'http://dispatch.hir.is/h14/api/v1/';
 
-EvalApp.controller("templateController",
+EvalApp.controller("TemplateController",
 function($scope, TemplateResource, toastr) {
 	$scope.template = {
 		CourseQuestions: [],
