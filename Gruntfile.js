@@ -40,8 +40,9 @@ module.exports = function ( grunt ) {
         },
         concat: {
             dist: {
-                src: ['js/*.js'],
-                dest: 'dist/app.js'
+                src: ['src/js/*.js', '!src/js/*Spec.js' ],
+                dest: 'dist/app.js',
+
             }
         },
         uglify: {

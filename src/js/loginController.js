@@ -2,7 +2,7 @@
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
 
 EvalApp.controller('loginController', ['$scope', 'LoginResourse',
-function($scope, LoginResourse) {
+function($scope, LoginResource) {
 	$scope.username = '';
 	$scope.password = '';
 
@@ -13,11 +13,12 @@ function($scope, LoginResourse) {
 }]);
 
 EvalApp.factory('LoginResource',
-function($http, $location) {
+function($http, $location, $scope) {
 	return {
 		createLogin: function(username, password){
 			$http.post('http://dispatch.hir.is/h14/api/v1/login', {user: username, pass: password})
 			.success (function(data) {
+
 				$location.path('/home/' + $scope.username);
 				$scope.thisUser = data;
 				$scope.token = $scope.thisUser.Token;
@@ -30,20 +31,7 @@ function($http, $location) {
 
 
 
-//This code is test, and might be better
-/*angular.module('EvalApp', ["ngRoute"]);
 
-angular.module("EvalApp").controller('loginController', ['$scope', '$http', function($scope, $http) {
-	$scope.username = '';
-	$scope.password = '';
-	$scope.token = '';
 
-	$scope.login = function() {
-		$http.post("http://dispatch.hir.is/h14/api/v1/login", {user: $scope.username, pass: $scope.password})
-		.success (function(data) {
-			$scope.thisUser = data;
-			$scope.token = $scope.thisUser.Token;
-			return true;
-		});
-	};
-}]);*/
+
+

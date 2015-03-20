@@ -1,9 +1,9 @@
 "use strict";
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
-angular.module('EvalApp'). constant('SERVER_URL', 'http://dispatch.hir.is/h14/api/v1/');
+var SERVER_URL = 'http://dispatch.hir.is/h14/api/v1/';
 
 EvalApp.controller("templateController",
-function($scope, TemplateResourse, toastr) {
+function($scope, TemplateResource, toastr) {
 	$scope.template = {
 		CourseQuestions: [],
 		TeacherQuestions: []
@@ -28,8 +28,8 @@ function($http) {
 		getTemplates: function () {
 			return $http.get(SERVER_URL + "evaluationtemplates");
 		},
-		getTemplateByID: function(id){
-			return $http.get(SERVER_URL + "evaluationtemplates/" + id, {id:ID});
+		getTemplateByID: function(ID){
+			return $http.get(SERVER_URL + "evaluationtemplates/" + ID, {id:ID});
 		},
 		addTemplate: function(template) {
 			$http.post(SERVER_URL + "evaluationtemplates", undefined, template);
