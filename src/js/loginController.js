@@ -1,8 +1,11 @@
-'use strict';
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
 
-EvalApp.controller('loginController', ['$scope', 'LoginResourse',
-function($scope, LoginResource) {
+angular.module('ChatClient').controller('LoginController', [
+'$scope', '$location', '$rootScope', '$routeParams', 'socket',    
+function ($scope, $location, $rootScope, $routeParams, socket) {
+
+EvalApp.controller('loginController', ['$scope', 'LoginResourse', '$location'
+function($scope, LoginResource, $location) {
 	$scope.username = '';
 	$scope.password = '';
 
@@ -19,7 +22,7 @@ function($http, $location, $scope) {
 			$http.post('http://dispatch.hir.is/h14/api/v1/login', {user: username, pass: password})
 			.success (function(data) {
 
-				$location.path('/home/' + $scope.username);
+				$location.path('/admin' + $scope.username);
 				$scope.thisUser = data;
 				$scope.token = $scope.thisUser.Token;
 				return true;

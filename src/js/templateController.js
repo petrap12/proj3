@@ -1,4 +1,3 @@
-"use strict";
 var EvalApp = angular.module('EvalApp', ['ngRoute']);
 var SERVER_URL = 'http://dispatch.hir.is/h14/api/v1/';
 
